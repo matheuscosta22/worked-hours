@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->apiResource('/user', App\Http\Controllers\UserController::class)->names('user');
+Route::group(['middleware' => ['auth:sanctum']], function ($route) {
+    Route::apiResource('/user', App\Http\Controllers\UserController::class)->names('user');
+});
+Route::post('/login', [App\Http\Controllers\UserController::class, 'login'])->name('login');
