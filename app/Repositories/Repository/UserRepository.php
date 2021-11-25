@@ -7,6 +7,7 @@ use App\Repositories\Contracts\UserInterface;
 use App\Repositories\Repository\AbstractRepository;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 
@@ -32,10 +33,33 @@ class UserRepository extends AbstractRepository implements UserInterface
             if ($model !== null && Hash::check($request->password, $model->password) === true) {
                 $this->setMessage('Login efetuado com sucesso', 200);
                 return $model->createToken($model->email)->plainTextToken;
-            }else{
+            } else {
                 $this->setMessage('Credenciais incorretas', 401);
                 return null;
             }
+        } catch (Exception $e) {
+            $this->setMessage('Erro encontrado com o código ' . $e, 500);
+            return null;
+        }
+    }
+
+    public function logout(Request $request)
+    {
+        try {
+            $request->user()->currentAccessToken()->delete();
+            $this->setMessage('Logout bem-sucedido', 200);
+            return null;
+        } catch (Exception $e) {
+            $this->setMessage('Erro encontrado com o código ' . $e, 500);
+            return null;
+        }
+    }
+
+    public function me(Request $request)
+    {
+        try {
+            $this->setMessage('Dados encontrados', 200);
+            return $request->user();
         } catch (Exception $e) {
             $this->setMessage('Erro encontrado com o código ' . $e, 500);
             return null;

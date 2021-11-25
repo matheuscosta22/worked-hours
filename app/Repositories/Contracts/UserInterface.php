@@ -14,4 +14,6 @@ interface UserInterface
     public function create(Request $request);
     public function update(Request $request, $id);
     public function login(Request $request);
+    public function logout(Request $request);
+    public function me(Request $request);
 }

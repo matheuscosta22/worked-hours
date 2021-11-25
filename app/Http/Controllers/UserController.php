@@ -36,4 +36,14 @@ class UserController extends Controller
     {
         return response()->json(["model" => $interface->login($request), "message" => $interface->getMessage()->text], $interface->getMessage()->code);
     }
+
+    public function logout(Request $request, UserInterface $interface)
+    {
+        return response()->json(["model" => $interface->logout($request), "message" => $interface->getMessage()->text], $interface->getMessage()->code);
+    }
+
+    public function me(Request $request, UserInterface $interface)
+    {
+        return response()->json(["model" => $interface->me($request), "message" => $interface->getMessage()->text], $interface->getMessage()->code);
+    }
 }
