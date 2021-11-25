@@ -22,4 +22,4 @@ class UserFactory extends Factory
             'password' => 'asdfasdf',
         ];
     }
-}
+} 

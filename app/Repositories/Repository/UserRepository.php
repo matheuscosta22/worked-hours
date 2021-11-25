@@ -21,7 +21,7 @@ class UserRepository extends AbstractRepository implements UserInterface
 
 
     public function __construct()
-    {
+    { 
         $this->model = app($this->model);
         parent::__construct($this->model, $this->message, $this->relationships, $this->dependents);
     }

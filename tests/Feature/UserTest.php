@@ -31,7 +31,7 @@ class UserTest extends TestCase
     public function test_delete_user()
     {
         $user = User::factory()->create();
-        $response = $this->deleteJson("api/user/" . $user->id, [], ["Authorization" => "Bearer " . $this->auth()]);
+        $response = $this->deleteJson("api/user/" . $user->id, [],["Authorization" => "Bearer " . $this->auth()]);
 
         $response->assertStatus(204);
     }
@@ -44,7 +44,7 @@ class UserTest extends TestCase
             'last_name' => $faker->lastName(),
             'email' => rand(10000000, 99999999) . '@gmail.com',
             'password' => 'asdfasdf',
-        ], ["Authorization" => "Bearer " . $this->auth()]);
+        ],["Authorization" => "Bearer " . $this->auth()]);
         $response->assertStatus(201);
     }
 
@@ -52,14 +52,14 @@ class UserTest extends TestCase
     {
         $faker = Factory::create();
         $user = User::factory()->create();
-        $response = $this->putJson("api/user/" . $user->id, ['first_name' => $faker->firstName()], ["Authorization" => "Bearer " . $this->auth()]);
+        $response = $this->putJson("api/user/" . $user->id, ['first_name' => $faker->firstName()],["Authorization" => "Bearer " . $this->auth()]);
         $response->assertStatus(200);
     }
 
 
 
-
-
+    
+    
     public function auth()
     {
         $user = User::factory()->create();

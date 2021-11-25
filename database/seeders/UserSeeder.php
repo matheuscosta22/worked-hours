@@ -28,5 +28,5 @@ class UserSeeder extends Seeder
                 'updated_at' => $date
             ]);
         }
-    }
+    } 
 }

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use stdClass;
 
 abstract class AbstractRepository
-{
+{ 
 
     private $model;
     private $message;

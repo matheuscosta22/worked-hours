@@ -46,4 +46,4 @@ class UserController extends Controller
     {
         return response()->json(["model" => $interface->me($request), "message" => $interface->getMessage()->text], $interface->getMessage()->code);
     }
-}
+} 

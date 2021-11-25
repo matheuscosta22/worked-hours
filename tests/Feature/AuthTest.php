@@ -35,7 +35,7 @@ class AuthTest extends TestCase
     }
 
 
-
+ 
     public function auth()
     {
         $user = User::factory()->create();
