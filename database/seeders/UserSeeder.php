@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
                 'first_name' => $faker->firstName(),
                 'last_name' => $faker->lastName(),
                 'email' => rand(10000000, 99999999) . '@gmail.com',
+                'hourly_rate' => rand(10, 999),
                 'password' => Hash::make('asdfasdf'),
                 'created_at' => $date,
                 'updated_at' => $date

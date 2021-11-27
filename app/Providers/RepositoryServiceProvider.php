@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Repositories\Contracts\DayWorkedInterface;
 use App\Repositories\Contracts\UserInterface;
+use App\Repositories\Repository\DayWorkedRepository;
 use App\Repositories\Repository\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,5 +28,6 @@ class RepositoryServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->bind(UserInterface::class, UserRepository::class);
+        $this->app->bind(DayWorkedInterface::class, DayWorkedRepository::class);
     }
 }    

@@ -124,16 +124,6 @@ abstract class AbstractRepository
 
 
 
-
-
-
-
-
-
-
-
-
-
     public function checkRelations($id, $relationships)
     {
         foreach ($relationships as $relation) {

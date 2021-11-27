@@ -43,6 +43,7 @@ class UserTest extends TestCase
             'first_name' => $faker->firstName(),
             'last_name' => $faker->lastName(),
             'email' => rand(10000000, 99999999) . '@gmail.com',
+            'hourly_rate' => rand(10, 999),
             'password' => 'asdfasdf',
         ],["Authorization" => "Bearer " . $this->auth()]);
         $response->assertStatus(201);

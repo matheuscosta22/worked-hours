@@ -23,6 +23,7 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'hourly_rate'
     ];
 
     /**
@@ -38,4 +39,14 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = Hash::make($password);
     } 
+
+    public function getHourlyRateAttribute()
+    {
+        return 'R$ '.number_format($this->attributes['hourly_rate'], 2, ',', '.');
+    } 
+
+    public function workedDays(){
+        return $this->hasMany(DayWorked::class, 'id_user', 'id');
+    }
+
 }

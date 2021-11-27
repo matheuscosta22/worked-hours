@@ -19,7 +19,8 @@ class UserFactory extends Factory
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
             'email' => rand(10000000, 99999999) . '@gmail.com',
+            'hourly_rate' => rand(10, 999),
             'password' => 'asdfasdf',
         ];
     }
-} 
+}
