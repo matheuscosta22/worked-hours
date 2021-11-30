@@ -66,7 +66,7 @@ class UserTest extends TestCase
         $user = User::factory()->create();
         $response = $this->postJson('api/login', [
             'email' => $user->email,
-            'password' =>  "asdfasdf",
+            'password' =>  "12345678",
         ]);
         $token = json_decode($response->baseResponse->content())->model;
         return $token;

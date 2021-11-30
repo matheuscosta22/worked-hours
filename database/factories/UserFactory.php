@@ -24,7 +24,7 @@ class UserFactory extends Factory
             'last_name' => $last_name,
             'email' => $first_name . $last_name . $date . 'gmail.com',
             'hourly_rate' => $this->faker->numberBetween(50, 999),
-            'password' => Hash::make('12345678'),
+            'password' => '12345678',
         ];
     }
 }
