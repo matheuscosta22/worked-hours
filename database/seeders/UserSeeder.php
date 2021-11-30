@@ -19,12 +19,14 @@ class UserSeeder extends Seeder
         $faker = Factory::create();
         for ($a = 0; $a < 1000; $a++) {
             $date = now();
+            $first_name = $faker->firstName();
+            $last_name = $faker->lastName();
             $user = DB::table('users')->insert([
-                'first_name' => $faker->firstName(),
-                'last_name' => $faker->lastName(),
-                'email' => rand(10000000, 99999999) . '@gmail.com',
-                'hourly_rate' => rand(10, 999),
-                'password' => Hash::make('asdfasdf'),
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'email' => $first_name . $last_name . $date .'gmail.com',
+                'hourly_rate' => $faker->numberBetween(50, 999),
+                'password' => Hash::make('12345678'),
                 'created_at' => $date,
                 'updated_at' => $date
             ]);

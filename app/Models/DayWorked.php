@@ -17,44 +17,10 @@ class DayWorked extends Model
      * @var string[]
      */
     protected $fillable = [
-        'started_at',
-        'break',
-        'return',
-        'finished_at',
+        'hours',
+        'date',
         'id_user'
     ];
-
-    public function getStartedAtAttribute()
-    {
-        if ($this->attributes['started_at'] != null) {
-            return date('d/m/Y H:i:s', strtotime($this->attributes['started_at']));
-        }
-        return null;
-    }
-
-    public function getBreakAttribute()
-    {
-        if ($this->attributes['break'] != null) {
-            return date('d/m/Y H:i:s', strtotime($this->attributes['break']));
-        }
-        return null;
-    }
-
-    public function getReturnAttribute()
-    {
-        if ($this->attributes['return'] != null) {
-            return date('d/m/Y H:i:s', strtotime($this->attributes['return']));
-        }
-        return null;
-    }
-
-    public function getFinishedAtAttribute()
-    {
-        if ($this->attributes['finished_at'] != null) {
-            return date('d/m/Y H:i:s', strtotime($this->attributes['finished_at']));
-        }
-        return null;
-    }
 
     public function user()
     {

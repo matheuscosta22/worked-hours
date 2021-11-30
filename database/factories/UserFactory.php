@@ -15,12 +15,16 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $date = now();
+        $first_name = $this->faker->firstName();
+        $last_name = $this->faker->lastName();
         return [
-            'first_name' => $this->faker->firstName(),
-            'last_name' => $this->faker->lastName(),
-            'email' => rand(10000000, 99999999) . '@gmail.com',
-            'hourly_rate' => rand(10, 999),
-            'password' => 'asdfasdf',
+
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'email' => $first_name . $last_name . $date . 'gmail.com',
+            'hourly_rate' => $this->faker->numberBetween(50, 999),
+            'password' => Hash::make('12345678'),
         ];
     }
 }

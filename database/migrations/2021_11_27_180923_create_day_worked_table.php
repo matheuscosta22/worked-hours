@@ -15,10 +15,8 @@ class CreateDayWorkedTable extends Migration
     {
         Schema::create('day_worked', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('started_at');
-            $table->timestamp('break')->nullable();
-            $table->timestamp('return')->nullable();
-            $table->timestamp('finished_at')->nullable();
+            $table->integer('hours');
+            $table->date('date');
             $table->foreignId('id_user')->references('id')->on('users');
             $table->timestamps();
         });
